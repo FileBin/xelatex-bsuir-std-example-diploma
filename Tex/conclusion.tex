@@ -4,11 +4,29 @@
 \newpage
 
 
-\renewcommand{\refname}{\textbf{Cписок использованных источников}}
-\DeclareFieldFormat{url}{Режим доступа\addcolon\space\url{#1} [Электронный ресурс].}
+\urlstyle{same}
+\renewcommand{\refname}{\textbf{Список использованных источников}}
+\DeclareFieldFormat{url}{[Электронный ресурс]. -- Режим доступа : \url{#1}}
 \DeclareFieldFormat{title}{{#1}}
-\DeclareFieldFormat{labelnumberwidth}{[{#1}]\adddot  }
+
+
+\defbibenvironment{bibliography}
+{\list
+	{\printfield[labelnumberwidth]{labelnumber}}
+	{\setlength{\labelwidth}{1.25cm}%
+		\setlength{\leftmargin}{0pt}%
+		\setlength{\itemindent}{1.25cm}%
+		\setlength{\itemsep}{\bibitemsep}%
+		\setlength{\parsep}{\bibparsep}%
+		\setlength{\labelsep}{0pt}%
+		\setlength{\listparindent}{0pt}}%
+	\renewcommand*{\makelabel}[1]{\hspace*{1.25cm}##1\hspace{0.5em}} 
+}
+{\endlist}
+{\item}
+
 \addcontentsline{toc}{section}{Список использованных источников}
+\emergencystretch=5pt
 \printbibliography
 
 \newpage
